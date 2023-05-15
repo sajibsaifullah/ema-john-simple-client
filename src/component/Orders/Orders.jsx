@@ -11,15 +11,15 @@ const Orders = () => {
   const [cart, setCart] = useState(savedCart);
 
   const handleRemoveFromCard = (id) => {
-    const remaining = cart.filter(product => product.id !== id);
+    const remaining = cart.filter((product) => product._id !== id);
     setCart(remaining);
-    removeFromDb(id)
+    removeFromDb(id);
   };
 
-  const handleClearCart = ()=>{
+  const handleClearCart = () => {
     setCart([]);
-    deleteShoppingCart()
-  }
+    deleteShoppingCart();
+  };
 
   // console.log(savedCart);
   return (
@@ -27,19 +27,17 @@ const Orders = () => {
       <div className="review-container">
         {cart.map((product) => (
           <ReviewItem
-            key={product.id}
+            key={product._id}
             product={product}
             handleRemoveFromCard={handleRemoveFromCard}
           ></ReviewItem>
         ))}
       </div>
       <div className="cart-container">
-        <Cart cart={cart}
-        handleClearCart={handleClearCart}
-        > 
-        <Link className="proceed-link" to="/checkout">
-          <button className="btn-proceed">Proceed Check</button>
-        </Link>
+        <Cart cart={cart} handleClearCart={handleClearCart}>
+          <Link className="proceed-link" to="/checkout">
+            <button className="btn-proceed">Proceed Check</button>
+          </Link>
         </Cart>
       </div>
     </div>

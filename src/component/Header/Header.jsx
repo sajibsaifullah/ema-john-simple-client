@@ -25,7 +25,7 @@ const Header = () => {
         <Link to="/orders">Orders</Link>
         <Link to="/inventory">Inventory</Link>
         <Link to="/login">Login</Link>
-        <Link to="/signup">SignUp</Link>
+        {/* <Link to="/signup">SignUp</Link> */}
         {
           user && 
           <span className="text-white">
